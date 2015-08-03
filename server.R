@@ -23,23 +23,7 @@ shinyServer(
     
     observe({
       
-      if (input$conditions == "CONDITIONS") {
-        leafletProxy("map", session, data = collines) %>%
         clearShapes() %>%
         addPolygons(stroke = FALSE, fillOpacity = 0.5, smoothFactor = 0.5,
-          color= ~colorBin("Blues", collines$CONDITIONS, bins=100)(CONDITIONS)
-          )
-      }
-      if (input$conditions == "CONDITIONS.1") {
-        leafletProxy("map", session, data = collines) %>%
-          clearShapes() %>%
-          addPolygons(stroke = FALSE, fillOpacity = 0.5, smoothFactor = 0.5,
-                      color= ~colorBin("Blues", collines$CONDITIONS.1, bins=100)(CONDITIONS.1)
-          )
-      }
     })
-
     
-    }
-  )
-
